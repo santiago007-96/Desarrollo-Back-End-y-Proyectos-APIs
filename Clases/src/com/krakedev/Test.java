@@ -12,23 +12,23 @@ public class Test {
 		p = new Persona(); //Instanciar un objeto Persona
 		p2 = new Persona();
 		
-		p.nombre = "Mario";
-		p.edad = 45;
-		p.estatura = 1.65;
+		p.setNombre("Mario");
+		p.setEdad(45);
+		p.setEstatura(1.75);
 		
-		p2.nombre = "Ana";
-		p2.edad = 35;
-		p2.estatura = 1.59;
+		p2.setNombre("Ana");
+		p2.setEdad(35);
+		p2.setEstatura(1.59);
 		
-		System.out.println("Nombre: " + p.nombre);
-		System.out.println("Edad: " + p.edad);
-		System.out.println("Estatura: " + p.estatura);
+		System.out.println("Nombre: " + p.getNombre());
+		System.out.println("Edad: " + p.getEdad());
+		System.out.println("Estatura: " + p.getEstatura());
 		
 		System.out.println("--------------");
 		
-		System.out.println("Nombre: " + p2.nombre);
-		System.out.println("Edad: " + p2.edad);
-		System.out.println("Estatura: " + p2.estatura);
+		System.out.println("Nombre: " + p2.getNombre());
+		System.out.println("Edad: " + p2.getEdad());
+		System.out.println("Estatura: " + p2.getEstatura());
 	}
 
 }
