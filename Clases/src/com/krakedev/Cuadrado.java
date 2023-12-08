@@ -4,6 +4,8 @@ public class Cuadrado {
 
 	private double lado;
 	
+	
+	
 	public double getLado() {
 		return lado;
 	}

@@ -4,6 +4,14 @@ public class Fecha {
 
 	private int anio, mes, dia;
 
+	
+	
+	public Fecha(int anio, int mes, int dia) {
+		this.anio = anio;
+		this.mes = mes;
+		this.dia = dia;
+	}
+
 	public int getAnio() {
 		return anio;
 	}

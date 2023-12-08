@@ -6,16 +6,9 @@ public class TestAuto {
 		// TODO Auto-generated method stub
 		Auto auto1, auto2;
 		
-		auto1 = new Auto();
-		auto2 = new Auto();
+		auto1 = new Auto("Toyota", 2020, 30.509);
+		auto2 = new Auto("Ford", 2022, 32.005);
 		
-		auto1.setMarca("Toyota");
-		auto1.setAnio(2020);
-		auto1.setPrecio(30.509);
-		
-		auto2.setMarca("Ford");
-		auto2.setAnio(2022);
-		auto2.setPrecio(32.005);
 		
 		System.out.println("Primer Auto");
 		System.out.println("Marca: " + auto1.getMarca());
