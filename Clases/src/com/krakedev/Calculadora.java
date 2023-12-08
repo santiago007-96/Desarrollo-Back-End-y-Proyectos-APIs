@@ -30,19 +30,24 @@ public class Calculadora {
 	
 	public double dividir(double dividendo, double divisor) {
 		
-		double resultado;
+		double cociente;
 		
-		resultado = dividendo * divisor;
-		return resultado;
+		if(divisor != 0) {
+			cociente = dividendo / divisor;
+		}
+		else {
+			cociente = 0;
+		}
+		return cociente;
 	}
 	
 	public double promediar(double valor1, double valor2, double valor3) {
 		
-		double resultado;
+		double promedio;
 		
-		resultado = (valor1 + valor2 + valor3) / 3;
+		promedio = (valor1 + valor2 + valor3) / 3;
 		
-		return resultado;
+		return promedio;
 	}
 	
 	public void mostrarResultado() {
