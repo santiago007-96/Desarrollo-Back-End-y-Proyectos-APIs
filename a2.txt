@@ -1,1 +1,3 @@
 Soy el archivo a2
+
+Estuve untracked, ahora estoy staged
