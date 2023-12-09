@@ -39,5 +39,18 @@ public class Persona {
 		this.direccion = direccion;
 	}
 	
+	public void imprimir() {
+		if (direccion != null) {
+			System.out.println("Nombre: " + nombre);
+			System.out.println("Apellido: " + apellido);
+			System.out.println("Dirección: " + direccion.getCallePrincipal() + " " + direccion.getCalleSecundaria() + " "
+					+ direccion.getNumero());
+		} else {
+			System.out.println("Nombre: " + nombre);
+			System.out.println("Apellido: " + apellido);
+			System.out.println("Direccion: null");
+		}
+		
+	}
 	
 }

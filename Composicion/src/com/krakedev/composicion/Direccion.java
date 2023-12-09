@@ -7,6 +7,17 @@ public class Direccion {
 	private double latitud;
 	private double longitud;
 	
+	
+	
+	public Direccion(String callePrincipal, String calleSecundaria, String numero) {
+		this.callePrincipal = callePrincipal;
+		this.calleSecundaria = calleSecundaria;
+		this.numero = numero;
+	}
+	
+	public Direccion() {
+		
+	}
 	public String getCallePrincipal() {
 		return callePrincipal;
 	}
