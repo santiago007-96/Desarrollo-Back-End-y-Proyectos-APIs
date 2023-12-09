@@ -55,7 +55,7 @@ public class Cuenta {
 		System.out.println("");
 		System.out.println("Número de Cuenta: " + this.getId());
 		System.out.println("Tipo: " + this.getTipo());
-		System.out.println("Saldo: $ " + this.getSaldo());
+		System.out.println("Saldo: $" + this.getSaldo());
 		System.out.println("---------------------");
 	}
 	
