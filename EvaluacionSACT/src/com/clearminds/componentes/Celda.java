@@ -46,9 +46,7 @@ public class Celda {
 
 	public void ingresarProducto(Producto producto, int stockInicial) {
 		this.stock = stockInicial;
-		this.producto.setCodigo(producto.getCodigo());
-		this.producto.setNombre(producto.getNombre());
-		this.producto.setPrecio(producto.getPrecio());
+		this.producto = new Producto(producto.getCodigo(), producto.getNombre(), producto.getPrecio());
 	}
 	
 	public void imprimir() {

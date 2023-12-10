@@ -41,34 +41,64 @@ public class MaquinaDulces {
 	}
 	
 	public void cargarProducto(Producto producto, String codigoCelda, int itemsProductoColocar) {
-		Celda celdaRecuperada = this.buscarCelda(codigoCelda);
-		if (celdaRecuperada != null) {
-			celdaRecuperada.ingresarProducto(producto, itemsProductoColocar);
-		}
+		if (this.celda1.getCodigo().contains(codigoCelda)) {
+			this.celda1.ingresarProducto(producto, itemsProductoColocar);
+		} else if (this.celda2.getCodigo().contains(codigoCelda)) {
+			this.celda2.ingresarProducto(producto, itemsProductoColocar);
+		} else if (this.celda3.getCodigo().contains(codigoCelda)) {
+			this.celda3.ingresarProducto(producto, itemsProductoColocar);
+		} else if (this.celda4.getCodigo().contains(codigoCelda)) {
+			this.celda4.ingresarProducto(producto, itemsProductoColocar);
+		} 
+		
 	}
 	
 	public void mostrarProductos() {
 		System.out.println("**********************************");
 		System.out.println("-------------CELDA 1-------------");
-		System.out.println("Código Celda: " + this.celda1.getCodigo());
-		System.out.println("Nombre Producto: " + this.celda1.getProducto().getNombre());
-		System.out.println("Precio Producto: " + this.celda1.getProducto().getPrecio());
-		System.out.println("Stock: " + this.celda1.getStock());
+		if(this.celda1.getProducto() == null){
+			System.out.println("no existe la celda");
+		} else {
+			System.out.println("Código Celda: " + this.celda1.getCodigo());
+			System.out.println("Nombre Producto: " + this.celda1.getProducto().getNombre());
+			System.out.println("Precio Producto: " + this.celda1.getProducto().getPrecio());
+			System.out.println("Stock: " + this.celda1.getStock());
+		}	
+		
 		System.out.println("-------------CELDA 2-------------");
-		System.out.println("Código Celda: " + this.celda2.getCodigo());
-		System.out.println("Nombre Producto: " + this.celda2.getProducto().getNombre());
-		System.out.println("Precio Producto: " + this.celda2.getProducto().getPrecio());
-		System.out.println("Stock: " + this.celda2.getStock());
+		if (this.celda2.getProducto() == null) {
+			System.out.println("no existe la celda");
+		} else {
+			System.out.println("Código Celda: " + this.celda2.getCodigo());
+			System.out.println("Nombre Producto: " + this.celda2.getProducto().getNombre());
+			System.out.println("Precio Producto: " + this.celda2.getProducto().getPrecio());
+			System.out.println("Stock: " + this.celda2.getStock());
+		}
+		
 		System.out.println("-------------CELDA 3-------------");
-		System.out.println("Código Celda: " + this.celda3.getCodigo());
-		System.out.println("Nombre Producto: " + this.celda3.getProducto().getNombre());
-		System.out.println("Precio Producto: " + this.celda3.getProducto().getPrecio());
-		System.out.println("Stock: " + this.celda3.getStock());
+		if (this.celda3.getProducto() == null) {
+			System.out.println("no existe la celda");
+		} else {
+			System.out.println("Código Celda: " + this.celda3.getCodigo());
+			System.out.println("Nombre Producto: " + this.celda3.getProducto().getNombre());
+			System.out.println("Precio Producto: " + this.celda3.getProducto().getPrecio());
+			System.out.println("Stock: " + this.celda3.getStock());
+		}
+		
 		System.out.println("-------------CELDA 4-------------");
-		System.out.println("Código Celda: " + this.celda4.getCodigo());
-		System.out.println("Nombre Producto: " + this.celda4.getProducto().getNombre());
-		System.out.println("Precio Producto: " + this.celda4.getProducto().getPrecio());
-		System.out.println("Stock: " + this.celda4.getStock());
+		if (this.celda4.getProducto() == null) {
+			System.out.println("no existe la celda");
+		} else {
+			System.out.println("Código Celda: " + this.celda4.getCodigo());
+			System.out.println("Nombre Producto: " + this.celda4.getProducto().getNombre());
+			System.out.println("Precio Producto: " + this.celda4.getProducto().getPrecio());
+			System.out.println("Stock: " + this.celda4.getStock());
+		}
+		
+		System.out.println("");
+		System.out.println("************************");
+		System.out.println("Saldo de la máquina: " + this.saldo);
+		System.out.println("************************");
 	}
 	
 	public Producto buscarProductoEnCelda(String codigoCelda) {
