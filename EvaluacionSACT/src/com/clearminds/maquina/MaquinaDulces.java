@@ -55,44 +55,44 @@ public class MaquinaDulces {
 	
 	public void mostrarProductos() {
 		System.out.println("**********************************");
-		System.out.println("-------------CELDA 1-------------");
+		System.out.println("-------------CELDA " + this.celda1.getCodigo());
 		if(this.celda1.getProducto() == null){
 			System.out.println("no existe la celda");
 		} else {
-			System.out.println("Código Celda: " + this.celda1.getCodigo());
+			System.out.println("Stock: " + this.celda1.getStock());
 			System.out.println("Nombre Producto: " + this.celda1.getProducto().getNombre());
 			System.out.println("Precio Producto: " + this.celda1.getProducto().getPrecio());
-			System.out.println("Stock: " + this.celda1.getStock());
+			
 		}	
 		
-		System.out.println("-------------CELDA 2-------------");
+		System.out.println("-------------CELDA " + this.celda2.getCodigo());
 		if (this.celda2.getProducto() == null) {
 			System.out.println("no existe la celda");
 		} else {
-			System.out.println("Código Celda: " + this.celda2.getCodigo());
+			System.out.println("Stock: " + this.celda2.getStock());
 			System.out.println("Nombre Producto: " + this.celda2.getProducto().getNombre());
 			System.out.println("Precio Producto: " + this.celda2.getProducto().getPrecio());
-			System.out.println("Stock: " + this.celda2.getStock());
+			
 		}
 		
-		System.out.println("-------------CELDA 3-------------");
+		System.out.println("-------------CELDA " + this.celda3.getCodigo());
 		if (this.celda3.getProducto() == null) {
 			System.out.println("no existe la celda");
 		} else {
-			System.out.println("Código Celda: " + this.celda3.getCodigo());
+			System.out.println("Stock: " + this.celda3.getStock());
 			System.out.println("Nombre Producto: " + this.celda3.getProducto().getNombre());
 			System.out.println("Precio Producto: " + this.celda3.getProducto().getPrecio());
-			System.out.println("Stock: " + this.celda3.getStock());
+			
 		}
 		
-		System.out.println("-------------CELDA 4-------------");
+		System.out.println("-------------CELDA " + this.celda4.getCodigo());
 		if (this.celda4.getProducto() == null) {
 			System.out.println("no existe la celda");
 		} else {
-			System.out.println("Código Celda: " + this.celda4.getCodigo());
+			System.out.println("Stock: " + this.celda4.getStock());
 			System.out.println("Nombre Producto: " + this.celda4.getProducto().getNombre());
 			System.out.println("Precio Producto: " + this.celda4.getProducto().getPrecio());
-			System.out.println("Stock: " + this.celda4.getStock());
+			
 		}
 		
 		System.out.println("");
@@ -129,14 +129,14 @@ public class MaquinaDulces {
 		}
 	}
 	
-	public Celda buscarCeldaProducto(String codigoProducto) {
-		if (this.celda1.getProducto().getCodigo().contains(codigoProducto)) {
+	public Celda buscarCeldaProducto(String codigoProducto) {	
+		if (this.celda1.getProducto() != null && this.celda1.getProducto().getCodigo().contains(codigoProducto)) {
 			return this.celda1;
-		} else if (this.celda2.getProducto().getCodigo().contains(codigoProducto)) {
+		} else if (this.celda2.getProducto() != null && this.celda2.getProducto().getCodigo().contains(codigoProducto)) {
 			return this.celda2;
-		} else if (this.celda3.getProducto().getCodigo().contains(codigoProducto) ) {
+		} else if (this.celda3.getProducto() != null && this.celda3.getProducto().getCodigo().contains(codigoProducto) ) {
 			return this.celda3;
-		} else if (this.celda4.getProducto().getCodigo().contains(codigoProducto) ) {
+		} else if (this.celda4.getProducto() != null && this.celda4.getProducto().getCodigo().contains(codigoProducto) ) {
 			return this.celda4;
 		} else {
 			return null;
@@ -146,7 +146,8 @@ public class MaquinaDulces {
 	public void incrementarProductos(String codigoProducto, int cantItemsIncrementar) {
 		Celda celdaEncontrada = this.buscarCeldaProducto(codigoProducto);
 		if (celdaEncontrada != null) {
-			celdaEncontrada.setStock(cantItemsIncrementar);
+			int stockActual = celdaEncontrada.getStock();
+			celdaEncontrada.setStock(stockActual + cantItemsIncrementar);
 		}
 	}
 	
