@@ -8,16 +8,13 @@ public class MaquinaDulces {
 	private Celda celda1, celda2, celda3, celda4;
 	private double saldo;
 	
-	public MaquinaDulces() {
-		
-	}
-	
+
 	
 	public void configurarMaquina(String codigoCelda, String codigoCelda2, String codigoCelda3, String codigoCelda4) {
-		this.celda1.setCodigo(codigoCelda);
-		this.celda2.setCodigo(codigoCelda2);
-		this.celda3.setCodigo(codigoCelda3);
-		this.celda4.setCodigo(codigoCelda4);
+		this.celda1 = new Celda(codigoCelda);
+		this.celda2 = new Celda(codigoCelda2);
+		this.celda3 = new Celda(codigoCelda3);
+		this.celda4 = new Celda(codigoCelda4);
 	}
 	
 	public void mostrarConfiguracion() {
@@ -98,6 +95,57 @@ public class MaquinaDulces {
 		} else if (this.celda4.getCodigo().contains(codigoCelda)) {
 			return this.celda4.getProducto().getPrecio();
 		} else {
+			return 0;
+		}
+	}
+	
+	public Celda buscarCeldaProducto(String codigoProducto) {
+		if (this.celda1.getProducto().getCodigo().contains(codigoProducto)) {
+			return this.celda1;
+		} else if (this.celda2.getProducto().getCodigo().contains(codigoProducto)) {
+			return this.celda2;
+		} else if (this.celda3.getProducto().getCodigo().contains(codigoProducto) ) {
+			return this.celda3;
+		} else if (this.celda4.getProducto().getCodigo().contains(codigoProducto) ) {
+			return this.celda4;
+		} else {
+			return null;
+		}
+	}
+	
+	public void incrementarProductos(String codigoProducto, int cantItemsIncrementar) {
+		Celda celdaEncontrada = this.buscarCeldaProducto(codigoProducto);
+		if (celdaEncontrada != null) {
+			celdaEncontrada.setStock(cantItemsIncrementar);
+		}
+	}
+	
+	public void vender(String codigoCelda) {
+		Celda celdaEncontrada = this.buscarCelda(codigoCelda);
+		if (celdaEncontrada != null) {
+			// Disminuye stock
+			int stockActual = celdaEncontrada.getStock();
+			celdaEncontrada.setStock(stockActual - 1);
+			// Suma el precio del producto vendido al saldo
+			this.saldo = this.saldo + celdaEncontrada.getProducto().getPrecio();
+			//Muestra los productos actualizados
+			this.mostrarProductos();
+			System.out.println("");
+			System.out.println("************************");
+			System.out.println("Saldo de la máquina: " + this.saldo);
+			System.out.println("************************");
+		}
+	}
+	
+	public double venderConCambio(String codigoCelda, double valorIngresado) {
+		double saldoActual = this.saldo;
+		this.vender(codigoCelda);
+		if(saldoActual != this.saldo) {
+			Celda celdaEncontrada = this.buscarCelda(codigoCelda);
+			double cambio = valorIngresado - celdaEncontrada.getProducto().getPrecio();
+			return cambio;
+		} else {
+			// No vendío nada
 			return 0;
 		}
 	}
