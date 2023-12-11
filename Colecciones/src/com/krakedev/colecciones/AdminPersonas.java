@@ -20,6 +20,7 @@ public class AdminPersonas {
 		Persona elementoPersona;
 		for(int i=0; i<personas.size(); i++) {
 			elementoPersona = personas.get(i);
+			System.out.println(i);
 			System.out.println("Persona: " + elementoPersona.getNombre() + " " + elementoPersona.getApellido() + " " + elementoPersona.getEdad());
 		}
 	}
@@ -34,5 +35,17 @@ public class AdminPersonas {
 			}
 		}
 		return personaEncontrada;
+	}
+	
+	public ArrayList<Persona> buscarMayores(int edad) {
+		ArrayList<Persona> mayores = new ArrayList<Persona>();
+		Persona elementoPersona = null;
+		for(int i=0; i<personas.size(); i++) {
+			elementoPersona = personas.get(i);
+			if (elementoPersona.getEdad() > edad) {
+				mayores.add(elementoPersona);
+			}
+		}
+		return mayores;
 	}
 }

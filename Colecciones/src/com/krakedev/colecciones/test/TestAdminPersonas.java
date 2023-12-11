@@ -1,5 +1,7 @@
 package com.krakedev.colecciones.test;
 
+import java.util.ArrayList;
+
 import com.krakedev.colecciones.AdminPersonas;
 import com.krakedev.colecciones.Persona;
 
@@ -14,6 +16,7 @@ public class TestAdminPersonas {
 		admin.agregar(new Persona("Bruno", "Benedetti", 43));
 		admin.imprimir();
 		
+		
 		Persona p1 = admin.buscarPorNombre("Bruno");
 		if (p1 != null) {
 			System.out.println("Encontrado: " + p1.getNombre() + " " + p1.getApellido() + " " + p1.getEdad());
@@ -21,6 +24,10 @@ public class TestAdminPersonas {
 		} else {
 			System.out.println("No existe la persona");
 		}
+		
+		ArrayList<Persona> personasMayores = admin.buscarMayores(25);
+		System.out.println("Personas mayores: " + personasMayores.size());
+		
 	}
 
 }
