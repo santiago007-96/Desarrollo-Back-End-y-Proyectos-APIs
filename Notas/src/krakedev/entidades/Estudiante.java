@@ -16,6 +16,41 @@ public class Estudiante {
 		this.notas = new ArrayList<Nota>();
 	}
 	
+	
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public ArrayList<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(ArrayList<Nota> notas) {
+		this.notas = notas;
+	}
+
+	
 	public void agregarNota(Nota nota) {
 		Nota elementoNota = null;
 		Nota notaEncontrada = null;
@@ -42,7 +77,28 @@ public class Estudiante {
 		}
 	}
 	
-
+	public double calcularPromedioNotasEstudiante() {
+		int totalArrayListNotas = this.notas.size();
+		double totalNotas = Double.valueOf(totalArrayListNotas);
+		double sumatotalNotas = 0;
+		double promedioNotasEstudiante = 0;
+		Nota elementoNota = null;
+		for(int i=0; i< this.notas.size(); i++) {
+			elementoNota = this.notas.get(i);
+			sumatotalNotas = sumatotalNotas + elementoNota.getCalificacion();
+		}
 		
+		promedioNotasEstudiante = sumatotalNotas / totalNotas;
+		return promedioNotasEstudiante;
 	}
+		
+	public void mostrar() {
+		Nota elementoNota = null;
+		for(int i=0; i< this.notas.size(); i++) {
+			elementoNota = this.notas.get(i);
+			System.out.println("Nota [Codigo = " + elementoNota.getMateria().getCodigo() + ", Nombre =" + elementoNota.getMateria().getNombre() + ", Calificacion = " + elementoNota.getCalificacion());
+		}
+	}
+	
+	
 }
