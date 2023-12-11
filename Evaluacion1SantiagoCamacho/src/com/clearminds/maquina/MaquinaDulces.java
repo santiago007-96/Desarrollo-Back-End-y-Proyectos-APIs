@@ -164,10 +164,10 @@ public class MaquinaDulces {
 		for (int i = 0; i < this.celdas.size(); i++) {
 			elementoCelda = this.celdas.get(i);
 			if(elementoCelda.getProducto() != null) {
-				System.out.println(elementoCelda.getCodigo());
-				if(Double.compare(elementoCelda.getProducto().getPrecio(), limite) < 0) {
+				if(elementoCelda.getProducto().getPrecio() <= limite){
 					producto = new Producto(elementoCelda.getProducto().getCodigo(), elementoCelda.getProducto().getNombre(), elementoCelda.getProducto().getPrecio());
 					productosMenores.add(producto);
+					
 				}
 			}
 		}
