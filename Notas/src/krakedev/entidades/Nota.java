@@ -39,6 +39,6 @@ public class Nota {
 
 
 	public void mostrar() {
-		System.out.println("Nota [Codigo = " + this.materia.getCodigo() + ", Nombre =" + this.materia.getNombre() + ", Calificacion = " + this.calificacion);
+		System.out.println("Nota [Codigo = " + this.materia.getCodigo() + ", Nombre =" + this.materia.getNombre() + ", Calificacion = " + this.calificacion + "]");
 	}
 }

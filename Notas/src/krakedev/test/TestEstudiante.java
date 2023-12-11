@@ -25,11 +25,12 @@ public class TestEstudiante {
 	     //No deberia dejar ingresar esta nota ya que la calificacion es menor a 0.
 	    estudiante.agregarNota(nuevaNota3);
 	    estudiante.agregarNota(nuevaNota4);
+	 
 	     
 	    estudiante.modificarNota("3", 10.00);
 	     //No deberia dejar modificar esta nota ya que la calificacion es menor a 0.
 	    estudiante.modificarNota("3", -1);
-	    System.out.println( estudiante.calcularPromedioNotasEstudiante());
+	    System.out.println("Promedio de Notas del Estudiante: " + estudiante.calcularPromedioNotasEstudiante());
 	     
 	     
 	    estudiante.mostrar();

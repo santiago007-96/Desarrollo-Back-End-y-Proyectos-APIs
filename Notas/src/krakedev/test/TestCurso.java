@@ -40,7 +40,7 @@ public class TestCurso {
 
 		System.out.println(curso1.getEstudiantes().size());
 
-		System.out.println(curso1.calcularPromedioCurso());
+		System.out.println("Promedio del Curso: " + curso1.calcularPromedioCurso());
 
 		curso1.mostrar();
 	}

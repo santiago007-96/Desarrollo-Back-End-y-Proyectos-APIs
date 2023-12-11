@@ -9,7 +9,7 @@ public class Estudiante {
 	private String cedula;
 	private ArrayList<Nota> notas;
 	
-	public Estudiante(String nombre, String apellido, String cedula) {
+	public Estudiante(String cedula, String nombre, String apellido) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.cedula = cedula;
@@ -54,15 +54,20 @@ public class Estudiante {
 	public void agregarNota(Nota nota) {
 		Nota elementoNota = null;
 		Nota notaEncontrada = null;
-		for(int i=0; i< this.notas.size(); i++) {
-			elementoNota = this.notas.get(i);
-			if(elementoNota.getMateria().getCodigo().equals(nota.getMateria().getCodigo()) != true) {
-				//Materias con codigo no repetidas
-				if(nota.getCalificacion() >= 0 && nota.getCalificacion() <= 10) {
-					this.notas.add(nota);
+		if(this.notas.size() == 0) {
+			this.notas.add(nota);
+		} else {
+			for(int i=0; i< this.notas.size(); i++) {
+				elementoNota = this.notas.get(i);
+				if(elementoNota.getMateria().getCodigo().equals(nota.getMateria().getCodigo()) != true) {
+					//Materias con codigo no repetidas
+					if(nota.getCalificacion() >= 0 && nota.getCalificacion() <= 10) {
+						this.notas.add(nota);
+					}
 				}
 			}
 		}
+		
 	}
 	
 	public void modificarNota(String codigoMateria, double nuevaNota) {
@@ -96,7 +101,7 @@ public class Estudiante {
 		Nota elementoNota = null;
 		for(int i=0; i< this.notas.size(); i++) {
 			elementoNota = this.notas.get(i);
-			System.out.println("Nota [Codigo = " + elementoNota.getMateria().getCodigo() + ", Nombre =" + elementoNota.getMateria().getNombre() + ", Calificacion = " + elementoNota.getCalificacion());
+			System.out.println("Nota [Codigo = " + elementoNota.getMateria().getCodigo() + ", Nombre =" + elementoNota.getMateria().getNombre() + ", Calificacion = " + elementoNota.getCalificacion() + "]");
 		}
 	}
 	

@@ -37,13 +37,19 @@ public class Curso {
 	
 	public void matricularEstudiante(Estudiante estudiante) {
 		Estudiante elementoEstudiante = null;
-		for(int i=0; i<this.estudiantes.size(); i++) {
-			elementoEstudiante = this.estudiantes.get(i);
-			if(elementoEstudiante.getCedula().equals(estudiante.getCedula()) != true) {
-				this.estudiantes.add(estudiante);
-				return;
+		if(this.estudiantes.size() == 0) {
+			this.estudiantes.add(estudiante);
+			return;
+		} else {
+			for(int i=0; i<this.estudiantes.size(); i++) {
+				elementoEstudiante = this.estudiantes.get(i);
+				if(elementoEstudiante.getCedula().equals(estudiante.getCedula()) != true) {
+					this.estudiantes.add(estudiante);
+					return;
+				}
 			}
 		}
+		
 	}
 	
 	public double calcularPromedioCurso() {
@@ -67,7 +73,7 @@ public class Curso {
 		Estudiante elementoEstudiante = null;
 		for(int i=0; i< this.estudiantes.size(); i++) {
 			elementoEstudiante = this.estudiantes.get(i);
-			System.out.println("Nota [Cédula = " + elementoEstudiante.getCedula() + ", Nombre =" + elementoEstudiante.getNombre() + ", Apellido = " + elementoEstudiante.getApellido());
+			System.out.println("Nota [Cédula = " + elementoEstudiante.getCedula() + ", Nombre =" + elementoEstudiante.getNombre() + ", Apellido = " + elementoEstudiante.getApellido() + "]");
 		}
 	}
 }
