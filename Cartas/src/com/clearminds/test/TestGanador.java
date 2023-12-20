@@ -1,29 +1,23 @@
-package com.test;
+package com.clearminds.test;
 
-import com.servicios.Juego;
-import com.entidades.Jugadores;
-import java.util.ArrayList;
+import com.clearminds.servicios.*;
 
 public class TestGanador {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		String [] jugadores =   {"jugador 1","jugador 2","jugador 3"};
+		Juego juego = new Juego(jugadores);
 
-        Jugadores jugadores = new Jugadores();
-        ArrayList<String> listaJugadores = new ArrayList<>();
-        listaJugadores.add("jugador 1");
-        listaJugadores.add("jugador 2");
-        listaJugadores.add("jugador 3");
-        jugadores.setJugadores(listaJugadores);
+        juego.entregarCartas(5); 
 
-        Juego juego = new Juego(jugadores.getJugadores());
-        juego.entregarCartas(5);
-
-        for (int i = 0; i < jugadores.getJugadores().size(); i++) {
-            int total = juego.devolverTotal(i);
-            System.out.println("Total del jugador " + (i + 1) + ": " + total);
+        for (String jugador : jugadores) {
+            int total = juego.devolverTotal(jugador);
+            System.out.println("Total de " + jugador + ": " + total);
         }
 
-        String ganador = juego.determinarGanador();
-        System.out.println("El ganador es: " + ganador);
-    }
+    //    String ganador = juego.determinarGanador();
+    //    System.out.println("El ganador es: " + ganador);
+
+	}
+
 }
